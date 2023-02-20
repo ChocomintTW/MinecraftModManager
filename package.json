@@ -1,0 +1,37 @@
+{
+	"name": "minecraft-mod-manager",
+	"version": "1.0.0",
+	"description": "Manager your Minecraft mods!",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"pack-all": "npm-run-all pack:*",
+		"pack:win": "electron-packager . \"Minecraft Mod Manager\" --app-version=1.0 --platform=win32 --arch=x64 --icon=\"./assets/image/icon.ico\" --ignore=\"./.vscode\"",
+		"pack:linux": "electron-packager . \"Minecraft Mod Manager\" --app-version=1.0 --platform=linux --arch=x64 --icon=\"./assets/image/icon.ico\" --ignore=\"./.vscode\""
+	},
+	"repository": "https://github.com/ChocomintTW",
+	"keywords": [
+		"minecraft",
+		"mod",
+		"manager"
+	],
+	"author": "Chocomint",
+	"license": "MIT",
+	"devDependencies": {
+		"electron": "^22.1.0",
+		"electron-packager": "^17.1.1"
+	},
+	"dependencies": {
+		"axios": "^1.2.5",
+		"curseforge-api": "^1.0.2",
+		"dialog": "^0.3.1",
+		"electron-builder": "^23.6.0",
+		"electron-progressbar": "^2.0.1",
+		"electron-prompt": "^1.7.0",
+		"electron-toaster": "^2.0.4",
+		"jquery": "^3.6.3",
+		"request": "^2.88.2",
+		"toastr": "^2.1.4",
+		"yaml": "^2.2.1"
+	}
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self'; style-src 'self' 'unsafe-inline'">
+		<link href="./styles.css" rel="stylesheet">
+		<link rel="stylesheet" href="./assets/fontawesome-free-6.2.1-web/css/all.css">
+		<link rel="stylesheet" href="./assets/jquery-ui-1.13.2/jquery-ui.css">
+		<link href="./assets/css/toastr.min.css" rel="stylesheet"/>
+		<link href="./assets/css/sweetalert2.min.css" rel="stylesheet"/>
+		<title>Minecraft Mod Manager</title>
+	</head>
+	<body>
+		<img src="./assets/image/bg.webp" class="bgIMG">
+		<div class="bgAdjustLayor1 fullwindow align00"></div>
+		<div class="bgAdjustLayor2 fullwindow align00"></div>
+
+		<!-- mod -->
+		<div id="mod" class="main-container show">
+			<div class="sidebar">
+				<button class="click-element sidebar-item sidebar-button" id="add_m">+ Modrinth</button>
+				<button class="click-element sidebar-item sidebar-button" id="add_c">+ CurseForge</button>
+				<!-- <button class="click-element sidebar-item sidebar-button" id="import">Import List</button> -->
+				<select class="click-element sidebar-item" id="versions" style="margin-top: 20px;"></select>
+
+				<div class="loaders" style="width: fit-content;">
+					<div class="loader-box">
+						<i id="check-fabric" class="fa-solid fa-square-check icon"></i>
+						<span>Fabric</span>
+					</div>
+					<div class="loader-box">
+						<i id="check-forge" class="fa-solid fa-square-check icon"></i>
+						<span>Forge</span>
+					</div>
+				</div>
+
+				<div class="flex-full" style="width: 100%;"></div>
+				
+				<button class="click-element sidebar-item sidebar-button" id="change-instance">Instances ↗</button>
+			</div>
+			<div class="separator_h"></div>
+			<div class="right-container">
+				<div class="search-settings">
+					<!-- https://ithelp.ithome.com.tw/articles/10200426 -->
+					<i class="fa-solid fa-magnifying-glass search-icon"></i>
+					<input class="click-element search-input" id="search" placeholder="Search mods..." autocomplete="off">
+					<div class="flex-full"></div>
+					<select class="click-element" id="instances" style="margin-right: 15px; width: 150px;"></select>
+				</div>
+				<div class="scrollable-list" id="mod-list"></div>
+				<div class="tooltip" id="mod-open-ext" style="visibility: hidden;">Open External Link</div>
+			</div>
+		</div>
+		
+		<!-- instance list -->
+		<div id="instance" class="main-container hide">
+			<div class="sidebar">
+				<button class="click-element sidebar-item sidebar-button" id="add-instance">Add Instance</button>
+				<div class="flex-full"></div>
+				<button class="click-element sidebar-item sidebar-button" id="change-mod">My Mods ↗</button>
+			</div>
+			<div class="separator_h"></div>
+			<div class="instance-center-container">
+				<div class="search-settings">
+					<i class="fa-solid fa-magnifying-glass search-icon"></i>
+					<input class="click-element search-input" id="search-instance" placeholder="Search instances..." autocomplete="off">
+				</div>
+				<div class="scrollable-list" id="instance-list"></div>
+			</div>
+			<div class="separator_h"></div>
+			<div class="right-container">
+				<div class="scrollable-list" id="instance-mod-list"></div>
+			</div>
+			<div class="tooltip" id="view-ins-mods" style="visibility: hidden;">View Mods</div>
+		</div>
+		
+		<!-- instance settings -->
+		<div id="instance-settings" class="main-container hide" mode="standby" nowEdit="">
+			<div class="instance-space"></div>
+			<div class="instance-center">
+				<h1 class="instance-settings-title">Instance Settings</h1>
+				<hr style="height: 1px; border-width: 0; background-color: #dbdbdba4">
+				<div class="settings">
+					<div class="settings-row">
+						<span>Instance Name :</span>
+						<input class="click-element" style="width: 250px;" id="instance-name" placeholder="Instance name" autocomplete="off">
+					</div>
+					<div class="settings-row">
+						<span>Game Version :</span>
+						<select class="click-element" style="width: 130px;" id="minecraft-versions" style="margin-top: 20px;">
+							<option>Select Version</option>
+						</select>
+					</div>
+					<div class="settings-row">
+						<span>Mod Loader :</span>
+						<select class="click-element" style="width: 130px;" id="loaders" style="margin-top: 20px;">
+							<option>Select Loader</option>
+							<option value="Fabric">Fabric</option>
+							<option value="Forge">Forge</option>
+							<option value="Quilt">Quilt</option>
+						</select>
+					</div>
+					<div class="flex-full"></div>
+					<div class="settings-row" style="display: flex; flex-direction: row;">
+						<div class="flex-full"></div>
+						<button class="click-element sidebar-button" id="cancel-instance">Cancel</button>
+						<button class="click-element sidebar-button" id="save-instance">Save</button>
+					</div>
+				</div>
+			</div>
+			<div class="instance-space"></div>
+		</div>
+
+		<!-- You can also require other files to run in this process -->
+		<script type="text/javascript" src="./renderer.js"></script>
+		<script src="./assets/jquery-ui-1.13.2/external/jquery/jquery.js"></script>
+		<script src="./assets/jquery-ui-1.13.2/jquery-ui.js"></script>
+		<script src="./assets/fontawesome-free-6.2.1-web/js/all.js"></script>
+		<script src="./assets/js/toastr.min.js"></script>
+		<script src="./assets/js/sweetalert2.all.min.js"></script>
+	</body>
+</html>
